@@ -1,4 +1,4 @@
-# pania (pania)
+# Pinia (Pinia Vue State Management Library)
 
 pania crud project
 
