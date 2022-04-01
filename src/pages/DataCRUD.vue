@@ -3,7 +3,7 @@
      <div class="row">
        <div class="col-12">
           <h4>Student CRUD with Options API using Pinia 🍍!</h4>
-           <p> store.$state = {{store.$state}}  </p>
+           <p> store.$state = {{store.$state}}  LocalStorage: {{store.$state.storage}} , {{storage}} </p>
 
             <div class="q-pa-md bg-grey-10 text-white" v-if="students_arr.length">
               <q-list dark bordered separator>
@@ -52,10 +52,12 @@
 import { ref, defineComponent } from 'vue'
 import { useCrudStore } from 'src/stores/crud'
 import { mapState, mapActions } from 'pinia'
+import {LocalStorage} from "quasar";
 const store = useCrudStore()
 export default {
   data() {
     return {
+      storage: LocalStorage.getItem('storage'),
       store: store,
       is_update: false,
       student: {
@@ -64,6 +66,9 @@ export default {
         age: null
       }
     }
+  },
+  created() {
+    // this.store.$state.storage = this.storage
   },
   methods: {
      ...mapActions(useCrudStore, ['add', 'remove']),

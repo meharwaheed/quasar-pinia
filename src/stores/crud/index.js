@@ -1,10 +1,13 @@
 import { defineStore } from 'pinia';
 import { colors, Notify } from 'quasar';
+import {LocalStorage} from "quasar";
+// LocalStorage.set('storage', 'ssr')
 export const useCrudStore = defineStore('crud', {
   state: () => ({
     students: [
       {name: 'Abdul Waheed', email: 'waheed@nodesol.com', age: 22}
     ],
+    storage: LocalStorage.getItem('storage')
   }),
   getters: {
     students_arr: (state) => state.students,

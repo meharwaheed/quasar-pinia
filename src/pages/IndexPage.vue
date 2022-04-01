@@ -62,7 +62,8 @@ export default defineComponent({
     const cart = useCartStore()
 
     const itemName = ref('')
-    const isEmbed = ref(window !== window.top)
+    // const isEmbed = ref(window !== window.top)
+    const isEmbed = ref(null)
 
     function addItemToCart() {
       if (!itemName.value) return
@@ -71,9 +72,9 @@ export default defineComponent({
     }
 
     function clearCart() {
-      if (window.confirm('Are you sure you want to clear the cart?')) {
-        cart.rawItems = []
-      }
+      // if (window.confirm('Are you sure you want to clear the cart?')) {
+      //   cart.rawItems = []
+      // }
     }
 
     async function buy() {
@@ -84,7 +85,7 @@ export default defineComponent({
       cart.rawItems = []
     }
 
-    window.stores = { user, cart, addItemToCart }
+    // window.stores = { user, cart, addItemToCart }
 
     return {
       itemName,
